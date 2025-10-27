@@ -7,6 +7,6 @@ router.get('/', getCars);
 router.get('/:id', getCarById);
 router.post('/', createCar);
 router.put('/:id', updateCar);
-router.delete('/', deleteCar);
+router.delete('/:id', deleteCar);
 
 export default router;
