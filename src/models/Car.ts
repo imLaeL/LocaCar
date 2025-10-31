@@ -24,6 +24,16 @@ const CarSchema = new Schema<CarDocument>({
         required: true,
         trim: true,
     },
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    allocatedTo: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        default: null,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
