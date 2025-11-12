@@ -1,0 +1,143 @@
+@import '../styles/variables';
+
+.sidebar {
+  width: 280px;
+  background: $dark-bg-card;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $border-color;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: transform $transition-base;
+
+  @media (max-width: $tablet) {
+    transform: translateX(-100%);
+    
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar-header {
+  padding: $spacing-xl;
+  border-bottom: 1px solid $border-color;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.profile-info {
+  flex: 1;
+  
+  .greeting {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $accent-green;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .profile-label {
+    font-size: 0.85rem;
+    color: $text-secondary;
+  }
+}
+
+.profile-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $primary-purple 0%, $primary-purple-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-primary;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: $shadow-md;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: $spacing-lg 0;
+  overflow-y: auto;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-xl;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all $transition-base;
+  border-left: 3px solid transparent;
+  
+  &:hover {
+    background: rgba(107, 70, 193, 0.1);
+    color: $text-primary;
+  }
+  
+  &.active {
+    background: $primary-purple;
+    color: $text-primary;
+    border-left-color: $accent-green;
+    box-shadow: $shadow-md;
+    
+    .nav-icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.nav-icon {
+  font-size: 1.3rem;
+  transition: transform $transition-base;
+}
+
+.nav-label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.sidebar-footer {
+  padding: $spacing-lg $spacing-xl;
+  border-top: 1px solid $border-color;
+}
+
+.logout-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba(239, 68, 68, 0.1);
+  color: $error;
+  border-radius: $radius-md;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all $transition-base;
+  
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: translateX(5px);
+  }
+}
+
+.logout-icon {
+  font-size: 1.2rem;
+}
+

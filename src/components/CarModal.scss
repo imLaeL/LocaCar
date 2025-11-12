@@ -1,0 +1,214 @@
+@import '../styles/variables';
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: $spacing-lg;
+  animation: fadeIn $transition-base;
+}
+
+.modal-content {
+  background: $dark-bg-card;
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: $shadow-xl, $shadow-glow;
+  animation: slideUp $transition-slow;
+  border: 1px solid $border-color;
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-xl;
+  border-bottom: 1px solid $border-color;
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+  }
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  color: $error;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+  cursor: pointer;
+  
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: rotate(90deg);
+  }
+}
+
+.modal-form {
+  padding: $spacing-xl;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid $error;
+  color: $error;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-lg;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: $spacing-lg;
+  
+  label {
+    display: block;
+    color: $text-secondary;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: $spacing-md;
+    background: $dark-bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    color: $text-primary;
+    font-size: 1rem;
+    transition: all $transition-base;
+    
+    &:focus {
+      border-color: $primary-purple;
+      box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.2);
+      outline: none;
+    }
+    
+    &::placeholder {
+      color: $text-tertiary;
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $border-color;
+}
+
+.btn-cancel {
+  padding: $spacing-md $spacing-xl;
+  background: transparent;
+  color: $text-secondary;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all $transition-base;
+  cursor: pointer;
+  
+  &:hover:not(:disabled) {
+    background: $dark-bg-secondary;
+    color: $text-primary;
+    border-color: $border-color-light;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-save {
+  padding: $spacing-md $spacing-xl;
+  background: $primary-purple;
+  color: $text-primary;
+  border: none;
+  border-radius: $radius-md;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all $transition-base;
+  cursor: pointer;
+  box-shadow: $shadow-md;
+  
+  &:hover:not(:disabled) {
+    background: $primary-purple-light;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.foto-preview {
+  margin-top: $spacing-md;
+  width: 100%;
+  max-width: 300px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  border: 2px solid $border-color;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+}
+

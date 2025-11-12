@@ -24,6 +24,16 @@ const CarSchema = new Schema<CarDocument>({
         required: true,
         trim: true,
     },
+    status: {
+        type: String,
+        enum: ['disponivel', 'indisponivel', 'em_uso'],
+        default: 'disponivel',
+        required: true,
+    },
+    foto: {
+        type: String,
+        default: null,
+    },
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: 'User',
