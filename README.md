@@ -234,3 +234,11 @@ Para dúvidas ou problemas, verifique:
 **LocaCar** - Sistema de Locadora de Carros 🚗
 
 </div>
+
+---
+
+<div align="center">
+
+Desenvolvido por -> João Valdivino e Isaque Lael
+
+</div>

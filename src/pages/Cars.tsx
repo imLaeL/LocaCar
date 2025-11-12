@@ -112,7 +112,7 @@ const Cars: React.FC = () => {
                     <th>Modelo</th>
                     <th>Ano</th>
                     <th>Cor</th>
-                    <th>Valor</th>
+                    <th>Diária</th>
                     <th>Status</th>
                     <th>Ações</th>
                   </tr>
@@ -143,9 +143,9 @@ const Cars: React.FC = () => {
                       </td>
                       <td>
                         <span className={`status-badge status-${car.status || 'disponivel'}`}>
-                          {car.status === 'disponivel' ? 'Disponível' : 
-                           car.status === 'indisponivel' ? 'Indisponível' : 
-                           car.status === 'em_uso' ? 'Em Uso' : 'Disponível'}
+                          {car.status === 'disponivel' ? 'Disponível' :
+                           car.status === 'indisponivel' ? 'Indisponível (manutenção)' :
+                           car.status === 'em_uso' ? 'Em Uso (de 11/11 até 15/11, 4 dias)' : 'Disponível'}
                         </span>
                       </td>
                       <td>
